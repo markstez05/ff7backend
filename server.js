@@ -14,7 +14,9 @@ app.use(cors());
 app.use('/api/users', UserRouter);
 app.use('/api/work', WorkRouter);
 app.use('/api/skill', SkillRouter);
-
+app.get("/", (req, res) => {
+    res.json({hello: 'world'});
+});
 mongoose.connect(
 	CONNECTION_URI,
 	{

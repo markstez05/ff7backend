@@ -4,13 +4,14 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js --exec babel-node",
+    "start": "nodemon ./node_modules/.bin/babel-node server.js",
     "build": "babel -d dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "babel": "^6.23.0",
     "bcrypt": "^3.0.2",
     "cors": "^2.8.4",
     "express": "^4.16.3",
