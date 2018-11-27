@@ -7,7 +7,7 @@ import SkillRouter  from './Skills/SkillRoutes';
 
 const CONNECTION_URI = process.env.MONGODB_URI || 'mongodb://markstez05:cheese12@ds147003.mlab.com:47003/ff7'
 const app = express();
-const port = process.env.PORT || 8000;
+const port = process.env.PORT;
 
 app.use(express.json());
 app.use(cors());
