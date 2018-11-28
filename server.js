@@ -8,7 +8,7 @@ import SkillRouter  from './Skills/SkillRoutes';
 
 const CONNECTION_URI = process.env.MONGODB_URI || 'mongodb://markstez05:cheese12@ds147003.mlab.com:47003/ff7'
 const app = express();
-const Port = process.env.PORT || 8081;
+const port = process.env.PORT || 8081;
 
 app.use(express.json());
 app.use(cors());
@@ -25,6 +25,6 @@ mongoose.connect(
 	.then(() => console.log('connected to MLAB!'))
 	.catch(err => console.log(err,'error connecting to mongodb'))
 
-app.listen(Port , function(){
+app.listen(port , function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
