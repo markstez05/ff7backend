@@ -16,7 +16,7 @@ const UserController = {
             })
             .catch(err => res.status(500).json({err: 'Cant Log In'}));
         } else {
-            res.status(500).json({err:'please provide a username and password'});
+            res.status(500).json({err:'please provide a username and passoword'});
         }
     },
     login: (req, res) => {

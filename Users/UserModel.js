@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import Bcrypt from 'bcrypt-nodejs';
+// import Bcrypt from 'bcrypt';
 const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const UserSchema = new mongoose.Schema({
@@ -15,16 +15,16 @@ const UserSchema = new mongoose.Schema({
     }
 });
 
-UserSchema.pre('save', function(next) {
-    Bcrypt.hash(this.password, 10, (err, hash) => {
-           this.password = hash;
-           return next();
-      });
-  });
+// UserSchema.pre('save', function(next) {
+//     Bcrypt.hash(this.password, 10, (err, hash) => {
+//            this.password = hash;
+//            return next();
+//       });
+//   });
   
-  UserSchema.methods.validatePassword = async function(password){
-      return Bcrypt.compare(password, this.password);
-  }
+//   UserSchema.methods.validatePassword = async function(password){
+//       return Bcrypt.compare(password, this.password);
+//   }
 
 const User = mongoose.model('User', UserSchema);
 
