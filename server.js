@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 import UserRouter from './Users/UserRoutes';
 import WorkRouter from './WorkExp/WorkRoutes';
 import SkillRouter  from './Skills/SkillRoutes';
-import Bcrypt from 'bcrypt';
+
 
 const CONNECTION_URI = process.env.MONGODB_URI || 'mongodb://markstez05:cheese12@ds147003.mlab.com:47003/ff7'
 const app = express();

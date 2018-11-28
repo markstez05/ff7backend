@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import Bcrypt from 'bcrypt';
+import Bcrypt from 'bcrypt-nodejs';
 const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const UserSchema = new mongoose.Schema({
