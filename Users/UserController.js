@@ -31,7 +31,12 @@ const UserController = {
         User.findById(id)
         .then(doc => res.status(201).json(doc))
         .catch(err => res.status(500).json({ err: "cant yo"}));
-    }
+    },
+    getUsers:(req, res) => {
+        User.find()
+        .then(docs => res.status(200).json(docs))
+        .catch(err => res.status(500).json({err: 'could not get users...lel'}))
+    },
 };
 
 export default UserController;
