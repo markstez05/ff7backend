@@ -16,10 +16,16 @@ const UserSchema = new mongoose.Schema({
     name: {
         type: String
     },
+    userClass: {
+        type: String
+    },
     age: {
         type: Number
     },
     location: {
+        type: String
+    },
+    picture:{
         type: String
     }
 });

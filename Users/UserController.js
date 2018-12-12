@@ -10,7 +10,7 @@ const UserController = {
             .then(doc => {
                 const token = GenerateToken(doc);
                 res.status(201).json({
-                    user: { _id: doc._id, username: doc.username },
+                    user: { _id: doc._id, username: doc.username, name: doc.name, userClass: doc.userClass, age: doc.age, location: doc.location },
                     token
                 });
             })
@@ -21,10 +21,32 @@ const UserController = {
     },
     login: (req, res) => {
         //if this far use logged in correctly and passes local strat
-        res.status(200).json({ token:  GenerateToken(req.user), user: req.user });
+        const user = req.body;
+        console.log("req body", req.body)
+        User.find({"username": req.body.username}, (err, user) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log("SERVER USER", user)
+                res.status(200).json({ token:  GenerateToken(req.user), user: user[0] });
+            }
+        });
     },
+
     logout: (req, res) => {
         res.send('Logged out Successfully');
+    },
+    updateUser: (req, res) => {
+        const { id } = req.params;
+        if('name' in req.body || 'userClass' in req.body || 'age' in req.body || 'location' in req.body || 'picture' in req.body) {
+            const { name, userClass, location, age, picture } = req.body;
+            console.log(req.body);
+            User.findOneAndUpdate({_id: id}, {$set:{name, location, userClass, age, picture}})
+            .then(doc => res.status(200).json(doc))
+            .catch(err => res.status(500).json({ err: 'something went wrong'}));
+        } else {
+            res.send('additional fields are required');
+        }
     },
     getUserById: (req, res) => {
         const { id } = req.params;

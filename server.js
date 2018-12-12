@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import UserRouter from './Users/UserRoutes';
 import WorkRouter from './WorkExp/WorkRoutes';
 import SkillRouter  from './Skills/SkillRoutes';
+import MediaRouter from './media/MediaRouter';
 
 
 const CONNECTION_URI = process.env.MONGODB_URI || 'mongodb://markstez05:cheese12@ds147003.mlab.com:47003/ff7'
@@ -12,6 +13,7 @@ const port = process.env.PORT || 8081;
 
 app.use(express.json());
 app.use(cors());
+app.use('/api/media/images', MediaRouter )
 app.use('/api/users', UserRouter);
 app.use('/api/work', WorkRouter);
 app.use('/api/skill', SkillRouter);

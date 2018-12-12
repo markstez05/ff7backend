@@ -5,7 +5,7 @@ import AuthMiddleware from '../Middleware/Auth-Middleware';
 
 const UserRouter = express.Router();
 //Methods from user controller
-const { createUser, login, logout, getUserById, getUsers } = UserController;
+const { createUser, login, logout, getUserById, getUsers, updateUser } = UserController;
 //validates a users password and sends token
 const { localStrategy } = AuthMiddleware;
 
@@ -17,10 +17,12 @@ const passportOptions = { session: false };
 //block login by requiring a valid password
 const authenticate = Passport.authenticate('local', passportOptions);
 
-UserRouter.get('/', getUsers)
+UserRouter.get('/', getUsers);
+UserRouter.put('/:id', updateUser);
 UserRouter.post('/register', createUser);
 UserRouter.post('/login', authenticate, login);
 UserRouter.get('/logout', logout);
 UserRouter.get('/:id', getUserById)
+
 
 export default UserRouter;
