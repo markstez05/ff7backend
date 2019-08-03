@@ -10,7 +10,7 @@ const UserController = {
             .then(doc => {
                 const token = GenerateToken(doc);
                 res.status(201).json({
-                    user: { _id: doc._id, username: doc.username, name: doc.name, userClass: doc.userClass, age: doc.age, location: doc.location },
+                    user: { _id: doc._id, username: doc.username, name: doc.name, userClass: doc.userClass, age: doc.age, location: doc.location, picture: doc.picture },
                     token
                 });
             })
@@ -38,9 +38,14 @@ const UserController = {
     },
     updateUser: (req, res) => {
         const { id } = req.params;
-        if('name' in req.body || 'userClass' in req.body || 'age' in req.body || 'location' in req.body || 'picture' in req.body) {
-            const { name, userClass, location, age, picture } = req.body;
-            console.log(req.body);
+        if('name' in req.body || 'userClass' in req.body || 'age' in req.body || 'location' in req.body || 'picture' in req.file) {
+            const { name, userClass, location, age } = req.body;
+            const { picture } = req.file.path;
+            // console.log(req.body);
+            // console.log('PATH', req.file.path)
+            // console.log('FILE', req.file)
+            // console.log('PIC', picture)
+            // console.log('AGE', age)
             User.findOneAndUpdate({_id: id}, {$set:{name, location, userClass, age, picture}})
             .then(doc => res.status(200).json(doc))
             .catch(err => res.status(500).json({ err: 'something went wrong'}));
