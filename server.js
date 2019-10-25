@@ -5,9 +5,10 @@ import UserRouter from './Users/UserRoutes';
 import WorkRouter from './WorkExp/WorkRoutes';
 import SkillRouter  from './Skills/SkillRoutes';
 import MediaRouter from './media/MediaRouter';
+import Config from './config';
 
 
-const CONNECTION_URI = process.env.MONGODB_URI || 'mongodb://markstez05:cheese12@ds147003.mlab.com:47003/ff7'
+const CONNECTION_URI = process.env.MONGODB_URI || Config.SERVER_CREDENTIALS;
 const app = express();
 const port = process.env.PORT || 8081;
 

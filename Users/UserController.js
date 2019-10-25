@@ -16,7 +16,7 @@ const UserController = {
             })
             .catch(err => res.status(500).json({err: 'Cant Log In'}));
         } else {
-            res.status(500).json({err:'please provide a username and passoword'});
+            res.status(500).json({err:'please provide a username and password'});
         }
     },
     login: (req, res) => {
@@ -37,25 +37,22 @@ const UserController = {
         res.send('Logged out Successfully');
     },
     updateUser: (req, res) => {
-        const { id } = req.params;
-        if('name' in req.body || 'userClass' in req.body || 'age' in req.body || 'location' in req.body || 'picture' in req.file) {
-            const { name, userClass, location, age } = req.body;
-            const { picture } = req.file.path;
-            // console.log(req.body);
-            // console.log('PATH', req.file.path)
-            // console.log('FILE', req.file)
-            // console.log('PIC', picture)
-            // console.log('AGE', age)
-            User.findOneAndUpdate({_id: id}, {$set:{name, location, userClass, age, picture}})
+        const { id } = req.params;  
+        if('name' in req.body || 'userClass' in req.body || 'age' in req.body || 'location' in req.body) {
+            const { name, userClass, location, age} = req.body;
+            User.findOneAndUpdate({_id: id}, {$set:{name, location, userClass, age}})
             .then(doc => res.status(200).json(doc))
             .catch(err => res.status(500).json({ err: 'something went wrong'}));
-        } else {
-            res.send('additional fields are required');
         }
+            const picture = req.file.path
+            console.log('FILE', req.file)
+            User.findOneAndUpdate({_id: id}, {$set:{picture: picture}})
+            .then(doc => res.status(200).json(doc))
+            .catch(err => res.status(500).json({ err: 'something went wrong'}));
     },
     getUserById: (req, res) => {
         const { id } = req.params;
-        User.findById(id)
+        User.findById(id)   
         .then(doc => res.status(201).json(doc))
         .catch(err => res.status(500).json({ err: "cant yo"}));
     },
