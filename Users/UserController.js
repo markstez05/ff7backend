@@ -22,12 +22,10 @@ const UserController = {
     login: (req, res) => {
         //if this far use logged in correctly and passes local strat
         const user = req.body;
-        console.log("req body", req.body)
         User.find({"username": req.body.username}, (err, user) => {
             if (err) {
-                console.log(err);
+                res.status(500).json({err:'please proved a valid username and password'});
             } else {
-                console.log("SERVER USER", user)
                 res.status(200).json({ token:  GenerateToken(req.user), user: user[0] });
             }
         });
@@ -38,17 +36,19 @@ const UserController = {
     },
     updateUser: (req, res) => {
         const { id } = req.params;  
+        console.log('here', id)
         if('name' in req.body || 'userClass' in req.body || 'age' in req.body || 'location' in req.body) {
             const { name, userClass, location, age} = req.body;
+            console.log(req.body)
             User.findOneAndUpdate({_id: id}, {$set:{name, location, userClass, age}})
             .then(doc => res.status(200).json(doc))
             .catch(err => res.status(500).json({ err: 'something went wrong'}));
-        }
+        } else {
             const picture = req.file.path
-            console.log('FILE', req.file)
             User.findOneAndUpdate({_id: id}, {$set:{picture: picture}})
             .then(doc => res.status(200).json(doc))
             .catch(err => res.status(500).json({ err: 'something went wrong'}));
+        }
     },
     getUserById: (req, res) => {
         const { id } = req.params;
