@@ -1,7 +1,10 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "FF7 Resume Server",
+  "engines": {
+    "node": "v10.16.0"
+  },
   "main": "server.js",
   "scripts": {
     "start": "./node_modules/.bin/babel-node server.js nodemon",
@@ -22,7 +25,7 @@
     "mime": "^2.4.4",
     "mongoose": "^5.7.12",
     "multer": "^1.4.2",
-    "nodemon": "^1.19.4",
+    "nodemon": "^2.0.1",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0"
