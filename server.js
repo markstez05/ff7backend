@@ -6,6 +6,8 @@ import WorkRouter from './WorkExp/WorkRoutes';
 import SkillRouter  from './Skills/SkillRoutes';
 import MediaRouter from './media/MediaRouter';
 import Config from './config';
+require("babel-core/register");
+require("babel-core/register")
 
 
 const CONNECTION_URI = process.env.MONGODB_URI || Config.SERVER_CREDENTIALS;
