@@ -14,19 +14,29 @@ const UserSchema = new mongoose.Schema({
         required: true,
     },
     name: {
-        type: String
+        type: String,
+        required: true,
+        default: 'New Player'
     },
     userClass: {
-        type: String
+        type: String,
+        required: true,
+        default: 'Worker'
     },
     age: {
-        type: Number
+        type: Number,
+        required: true,
+         default: 20
     },
     location: {
-        type: String
+        type: String,
+        required: true,
+         default: 'Somewhere, USA'
     },
     picture:{
-        type: String
+        type: String,
+        required: true,
+        default: "media/images/default.jpg"
     }
 });
 

@@ -9,10 +9,12 @@ const UserController = {
             newUser.save()
             .then(doc => {
                 const token = GenerateToken(doc);
+                console.log('user', user)
                 res.status(201).json({
                     user: { _id: doc._id, username: doc.username, name: doc.name, userClass: doc.userClass, age: doc.age, location: doc.location, picture: doc.picture },
                     token
                 });
+                console.log('user', user)
             })
             .catch(err => res.status(500).json({err: 'Cant Log In'}));
         } else {
