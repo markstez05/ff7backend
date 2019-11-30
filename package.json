@@ -7,7 +7,9 @@
     "node": "10.16.0"
   },
   "scripts": {
-    "start": "./node_modules/.bin/babel-node server.js",
+    "build": "babel -d dist",
+    "start": "nodemon server.js --exec babel-node",
+    "start-dev": "nodemon server.js --exec babel-node",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -21,7 +23,6 @@
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.4",
     "express": "^4.16.3",
-    "helmet": "^3.12.1",
     "jsonwebtoken": "^8.2.2",
     "mime": "^2.4.0",
     "mongoose": "^5.1.3",
