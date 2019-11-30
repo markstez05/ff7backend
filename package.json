@@ -7,7 +7,6 @@
     "node": "10.16.0"
   },
   "scripts": {
-    "build": "babel -d dist",
     "start": "nodemon server.js --exec babel-node",
     "start-dev": "nodemon server.js --exec babel-node",
     "test": "echo \"Error: no test specified\" && exit 1"
