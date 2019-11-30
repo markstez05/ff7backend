@@ -6,3 +6,7 @@ config.js
 /config.js
 ./config.js
 .env
+/node_modules
+npm-debug.log
+.DS_Store
+/*.env
