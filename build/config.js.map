@@ -1,1 +1,1 @@
-{"version":3,"sources":["../src/config.js"],"names":["SERVER_CREDENTIALS"],"mappings":";;;;;kBAAe;AACXA,wBAAoB;AADT,C","file":"config.js","sourcesContent":["export default {\n    SERVER_CREDENTIALS: 'mongodb://markstez05:cheese12@ds147003.mlab.com:47003/ff7',\n};"]}
+{"version":3,"sources":["../src/config.js"],"names":["module","exports","SERVER_CREDENTIALS"],"mappings":"AAAAA,OAAOC,OAAP,GAAkB;AACdC,wBAAoB;AADN,CAAlB","file":"config.js","sourcesContent":["module.exports =  {\n    SERVER_CREDENTIALS: 'mongodb://markstez05:cheese12@ds147003.mlab.com:47003/ff7',\n};"]}

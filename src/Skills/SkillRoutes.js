@@ -1,7 +1,7 @@
-import express from 'express';
-import Passport from 'passport';
-import SkillController from './SkillController';
-import AuthMiddleware from '../Middleware/Auth-Middleware';
+const express = require('express');
+const Passport = require('passport');
+const SkillController = require('./SkillController');
+const AuthMiddleware = require('../Middleware/Auth-Middleware');
 
 const SkillRouter = express.Router();
 // Methods from skill controller
@@ -22,4 +22,4 @@ SkillRouter.put('/:id', updateSkill);
 SkillRouter.delete('/:id', deleteSkill);
 SkillRouter.get('/:id', getSkillById);
 
-export default SkillRouter;
+module.exports = SkillRouter;

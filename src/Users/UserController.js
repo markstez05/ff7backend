@@ -1,5 +1,5 @@
-import User from './UserModel';
-import GenerateToken from '../Middleware/Token';
+const User = require('./UserModel');
+const GenerateToken = require('../Middleware/Token');
 
 const UserController = {
     createUser: (req, res) => {
@@ -65,4 +65,4 @@ const UserController = {
     },
 };
 
-export default UserController;
+module.exports = UserController;

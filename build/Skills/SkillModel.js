@@ -1,16 +1,6 @@
-'use strict';
+const mongoose = require('mongoose');
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _mongoose = require('mongoose');
-
-var _mongoose2 = _interopRequireDefault(_mongoose);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var SkillSchema = new _mongoose2.default.Schema({
+const SkillSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true
@@ -35,12 +25,12 @@ var SkillSchema = new _mongoose2.default.Schema({
     //     default: false
     // },
     userId: {
-        type: _mongoose2.default.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         required: true
     }
 });
 
-var Skill = _mongoose2.default.model('Skill', SkillSchema);
+const Skill = mongoose.model('Skill', SkillSchema);
 
-exports.default = Skill;
+module.exports = Skill;
 //# sourceMappingURL=SkillModel.js.map

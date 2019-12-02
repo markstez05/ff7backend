@@ -1,7 +1,7 @@
-import express from 'express';
-import Passport from 'passport';
-import WorkController from './WorkController';
-import AuthMiddleware from '../Middleware/Auth-Middleware';
+const express = require('express');
+const Passport = require('passport');
+const WorkController = require('./WorkController');
+const AuthMiddleware = require('../Middleware/Auth-Middleware');
 
 const WorkRouter = express.Router();
 // Methods from work controller
@@ -22,4 +22,4 @@ WorkRouter.put('/:id', updateWork);
 WorkRouter.delete('/:id', deleteWork);
 WorkRouter.get('/:id', getWorkById);
 
-export default WorkRouter;
+module.exports = WorkRouter;

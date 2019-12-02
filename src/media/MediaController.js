@@ -1,7 +1,7 @@
 const fs = require("fs");
 const MEDIA = `${__dirname}`;
+const Media = require('./MediaModel');
 
-import Media from './MediaModel';
 
 const MediaController = {
     getMedia:(req, res) => {
@@ -21,4 +21,4 @@ const MediaController = {
     },
 }
 
-export default MediaController;
+module.exports = MediaController;

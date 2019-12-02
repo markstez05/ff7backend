@@ -1,13 +1,11 @@
-require("babel-polyfill");
-require("@babel/register");
-import express from 'express';
-import cors from 'cors';
-import mongoose from 'mongoose';
-import UserRouter from './Users/UserRoutes';
-import WorkRouter from './WorkExp/WorkRoutes';
-import SkillRouter  from './Skills/SkillRoutes';
-import MediaRouter from './media/MediaRouter';
-import Config from './config';
+const express = require('express');
+const cors = require('cors');
+const mongoose = require('mongoose');
+const UserRouter = require('./Users/UserRoutes');
+const WorkRouter = require('./WorkExp/WorkRoutes');
+const SkillRouter  = require('./Skills/SkillRoutes');
+const MediaRouter = require('./media/MediaRouter');
+const Config = require('./config');
 
 
 const CONNECTION_URI = process.env.MONGODB_URI || Config.SERVER_CREDENTIALS;

@@ -1,10 +1,10 @@
 
-import express from 'express';
-import Passport from 'passport';
-import multer from 'multer';
-import path from 'path';
-import UserController from './UserController';
-import AuthMiddleware from '../Middleware/Auth-Middleware';
+const express = require('express');
+const Passport = require('passport');
+const multer = require('multer');
+const path = require('path');
+const UserController = require('./UserController');
+const AuthMiddleware = require('../Middleware/Auth-Middleware');
 
 const UserRouter = express.Router();
 //Methods from user controller
@@ -38,4 +38,4 @@ UserRouter.get('/logout', logout);
 UserRouter.get('/:id', getUserById)
 
 
-export default UserRouter;
+module.exports = UserRouter;

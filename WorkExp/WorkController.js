@@ -1,5 +1,5 @@
-import Work from './WorkModel';
-import User from '../Users/UserModel';
+const Work = require('./WorkModel');
+const User = require('../Users/UserModel');
 
 
 const WorkController = {
@@ -45,4 +45,4 @@ const WorkController = {
     }
 }
 
-export default WorkController;
+module.exports = WorkController;

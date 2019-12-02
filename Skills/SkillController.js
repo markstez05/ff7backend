@@ -1,4 +1,4 @@
-import Skill from './SkillModel';
+const Skill = require('./SkillModel');
 
 const SkillController = {
 
@@ -43,4 +43,4 @@ const SkillController = {
     }
 }
 
-export default SkillController;
+module.exports = SkillController;

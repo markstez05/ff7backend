@@ -1,45 +1,20 @@
-'use strict';
+const express = require('express');
+const Passport = require('passport');
+const WorkController = require('./WorkController');
+const AuthMiddleware = require('../Middleware/Auth-Middleware');
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _express = require('express');
-
-var _express2 = _interopRequireDefault(_express);
-
-var _passport = require('passport');
-
-var _passport2 = _interopRequireDefault(_passport);
-
-var _WorkController = require('./WorkController');
-
-var _WorkController2 = _interopRequireDefault(_WorkController);
-
-var _AuthMiddleware = require('../Middleware/Auth-Middleware');
-
-var _AuthMiddleware2 = _interopRequireDefault(_AuthMiddleware);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var WorkRouter = _express2.default.Router();
+const WorkRouter = express.Router();
 // Methods from work controller
-var getWork = _WorkController2.default.getWork,
-    createWork = _WorkController2.default.createWork,
-    updateWork = _WorkController2.default.updateWork,
-    deleteWork = _WorkController2.default.deleteWork,
-    getWorkById = _WorkController2.default.getWorkById;
+const { getWork, createWork, updateWork, deleteWork, getWorkById } = WorkController;
 // JWT strat for securing user work
-
-var jwtStrategy = _AuthMiddleware2.default.jwtStrategy;
+const { jwtStrategy } = AuthMiddleware;
 
 //passport global middleware
-
-_passport2.default.use(jwtStrategy);
+Passport.use(jwtStrategy);
 //passport local middleware
-var passportOptions = { session: false };
+const passportOptions = { session: false };
 //require JWT strat for accessing work
-var checkForToken = _passport2.default.authenticate('jwt', passportOptions);
+const checkForToken = Passport.authenticate('jwt', passportOptions);
 
 WorkRouter.get('/', checkForToken, getWork);
 WorkRouter.post('/', checkForToken, createWork);
@@ -47,5 +22,5 @@ WorkRouter.put('/:id', updateWork);
 WorkRouter.delete('/:id', deleteWork);
 WorkRouter.get('/:id', getWorkById);
 
-exports.default = WorkRouter;
+module.exports = WorkRouter;
 //# sourceMappingURL=WorkRoutes.js.map

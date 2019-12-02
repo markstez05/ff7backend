@@ -1,16 +1,6 @@
-'use strict';
+const mongoose = require('mongoose');
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _mongoose = require('mongoose');
-
-var _mongoose2 = _interopRequireDefault(_mongoose);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var MediaSchema = new _mongoose2.default.Schema({
+const MediaSchema = new mongoose.Schema({
     filename: {
         type: String,
         required: true
@@ -20,12 +10,12 @@ var MediaSchema = new _mongoose2.default.Schema({
         required: true
     },
     userId: {
-        type: _mongoose2.default.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         required: true
     }
 }, { timestamps: true });
 
-var Media = _mongoose2.default.model('Media', MediaSchema);
+const Media = mongoose.model('Media', MediaSchema);
 
-exports.default = Media;
+module.exports = Media;
 //# sourceMappingURL=MediaModel.js.map

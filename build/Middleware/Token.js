@@ -1,29 +1,19 @@
-'use strict';
+const jwt = require('jsonwebtoken');
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _jsonwebtoken = require('jsonwebtoken');
-
-var _jsonwebtoken2 = _interopRequireDefault(_jsonwebtoken);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var secret = 'nobody tosses a dwarf';
-var GenerateToken = function GenerateToken(user) {
-    var timestamp = new Date().getTime();
-    var payload = {
+const secret = 'nobody tosses a dwarf';
+const GenerateToken = user => {
+    const timestamp = new Date().getTime();
+    const payload = {
         sub: user._id,
         iat: timestamp,
         username: user.username
     };
-    var options = {
+    const options = {
         expiresIn: '24h'
     };
 
-    return _jsonwebtoken2.default.sign(payload, secret, options);
+    return jwt.sign(payload, secret, options);
 };
 
-exports.default = GenerateToken;
+module.exports = GenerateToken;
 //# sourceMappingURL=Token.js.map

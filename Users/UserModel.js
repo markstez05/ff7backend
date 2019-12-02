@@ -1,5 +1,5 @@
-import mongoose from 'mongoose';
-import bcrypt from 'bcryptjs';
+const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
 const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const UserSchema = new mongoose.Schema({
@@ -31,7 +31,7 @@ const UserSchema = new mongoose.Schema({
     location: {
         type: String,
         required: true,
-         default: 'Somewhere, USA'
+        default: 'Somewhere, USA'
     },
     picture:{
         type: String,
@@ -53,4 +53,4 @@ UserSchema.pre('save', function(next) {
 
 const User = mongoose.model('User', UserSchema);
 
-export default User;
+module.exports = User;

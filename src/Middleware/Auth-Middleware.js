@@ -1,9 +1,9 @@
-import LocalStrategy from 'passport-local';
-import PassportJWT, { ExtractJwt } from 'passport-jwt';
-import User from '../Users/UserModel';
+const LocalStrategy = require('passport-local');
+const User = require('../Users/UserModel');
+const JwtStrategy = require('passport-jwt').Strategy,
+    ExtractJwt = require('passport-jwt').ExtractJwt;
 
-
-const JwtStrategy = PassportJWT.Strategy;
+// const JwtStrategy = PassportJWT.Strategy;
 const secret = 'nobody tosses a dwarf';
 const jwtOptions = {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
@@ -50,4 +50,4 @@ const AuthMiddleware = {
     }),
 }
 
-export default AuthMiddleware;
+module.exports = AuthMiddleware;
