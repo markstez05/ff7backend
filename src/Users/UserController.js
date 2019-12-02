@@ -9,12 +9,10 @@ const UserController = {
             newUser.save()
             .then(doc => {
                 const token = GenerateToken(doc);
-                console.log('user', user)
                 res.status(201).json({
                     user: { _id: doc._id, username: doc.username, name: doc.name, userClass: doc.userClass, age: doc.age, location: doc.location, picture: doc.picture },
                     token
                 });
-                console.log('user', user)
             })
             .catch(err => res.status(500).json({err: 'Cant Log In'}));
         } else {
@@ -38,10 +36,8 @@ const UserController = {
     },
     updateUser: (req, res) => {
         const { id } = req.params;  
-        console.log('here', id)
         if('name' in req.body || 'userClass' in req.body || 'age' in req.body || 'location' in req.body) {
             const { name, userClass, location, age} = req.body;
-            console.log(req.body)
             User.findOneAndUpdate({_id: id}, {$set:{name, location, userClass, age}})
             .then(doc => res.status(200).json(doc))
             .catch(err => res.status(500).json({ err: 'something went wrong'}));
