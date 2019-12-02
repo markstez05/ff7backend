@@ -14,7 +14,7 @@ const { createUser, login, logout, getUserById, getUsers, updateUser } = UserCon
 const { localStrategy } = AuthMiddleware;
 
 const storage = multer.diskStorage({
-    destination: './media/images/',
+    destination: '../media/images/',
     filename: function (req, file, cb) {
         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
         console.log('IMG INFO', file);
