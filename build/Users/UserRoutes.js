@@ -14,16 +14,17 @@ const { createUser, login, logout, getUserById, getUsers, updateUser } = UserCon
 const { localStrategy } = AuthMiddleware;
 
 // const storage = multer.diskStorage({
-//     destination: '../media/images/',
+//     destination: '../media/images',
 //     filename: function (req, file, cb) {
-//         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-//         console.log('IMG INFO', file);
+//         cb(null, file.fieldname + '-' + Date.now() + 
+//         path.extname(file.originalname))
+//         console.log('IMG INFO', file)
 //     }
-// });
+// })
 
 //passport global middleware
 Passport.use(localStrategy);
-// const upload = multer({ storage: storage });
+// const upload = multer({ storage: storage })
 //passport local middleware
 const passportOptions = { session: false };
 //block login by requiring a valid password
