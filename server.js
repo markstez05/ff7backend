@@ -5,7 +5,7 @@ const UserRouter = require('./Users/UserRoutes');
 const WorkRouter = require('./WorkExp/WorkRoutes');
 const SkillRouter  = require('./Skills/SkillRoutes');
 const MediaRouter = require('./media/MediaRouter');
-const Config = require('./config');
+const Config = require('./config.js');
 
 
 const CONNECTION_URI = process.env.MONGODB_URI || Config.SERVER_CREDENTIALS;
