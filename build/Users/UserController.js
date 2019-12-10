@@ -37,7 +37,10 @@ const UserController = {
         if ('name' in req.body || 'userClass' in req.body || 'age' in req.body || 'location' in req.body) {
             const { name, userClass, location, age } = req.body;
             User.findOneAndUpdate({ _id: id }, { $set: { name, location, userClass, age } }).then(doc => res.status(200).json(doc)).catch(err => res.status(500).json({ err: 'something went wrong' }));
-        } else {
+        } 
+        else {
+            console.log('req body', req.body)
+            console.log('pictuer', req.file)
             const picture = req.file.path;
             User.findOneAndUpdate({ _id: id }, { $set: { picture: picture } }).then(doc => res.status(200).json(doc)).catch(err => res.status(500).json({ err: 'something went wrong' }));
         }

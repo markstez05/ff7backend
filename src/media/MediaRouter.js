@@ -11,3 +11,4 @@ const { getMedia } = MediaController;
 MediaRouter.get('/:img', getMedia);
 
 module.exports = MediaRouter;
+//# sourceMappingURL=MediaRouter.js.map
