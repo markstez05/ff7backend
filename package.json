@@ -7,7 +7,7 @@
     "node": "10.16.0"
   },
   "scripts": {
-    "start": "node ./build/server.js",
+    "start": "./src/server.js --exec babel-node",
     "start-dev": "./src/server.js --exec babel-node",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
